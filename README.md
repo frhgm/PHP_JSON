@@ -1,12 +1,2 @@
-<<<<<<< HEAD
-# php_json
-Conexion con mapa Mapbox usando JSON
-=======
-<<<<<<< HEAD
-# php_json
-Conexion con mapa Mapbox usando JSON
-=======
-# PHP_JSON
-# PHP_JSON
->>>>>>> Initial project version
->>>>>>> commit
+Falta eliminar las comillas de las variables del archivo json a la izquierda.
+Asignar el archivo JSON a una variable 'geoJson'
