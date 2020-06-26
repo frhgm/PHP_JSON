@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Test PHP</title>
+  <title>Mavid</title>
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous" />
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet" />
   <script type="text/javascript" src="geoJSON.js"></script>
@@ -12,6 +12,8 @@
   <link href="https://api.mapbox.com/mapbox-gl-js/v1.11.0/mapbox-gl.css" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.5.1/mapbox-gl-geocoder.min.js"></script>
+  <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.5.1/mapbox-gl-geocoder.css" type="text/css" />
 </head>
 
 <body>
@@ -19,13 +21,13 @@
     <div class="row">
       <div class="col-md-6">
         <label for="txtNombre">Ingrese nombre</label>
-        <input type="text" name="txtNombre" id="txtNombre" placeholder="Juan Pablo" class="form-control">
+        <input type="text" name="name" id="txtNombre" placeholder="Juan Pablo" class="form-control">
 
         <label for="txtEmail">Ingrese email</label>
-        <input type="email" name="txtEmail" id="txtEmail" placeholder="JuanPablo@mail.com" class="form-control">
+        <input type="email" name="email" id="txtEmail" placeholder="JuanPablo@mail.com" class="form-control">
 
         <label for="txtPass">Ingrese contraseña</label>
-        <input type="password" name="txtPass" id="txtPass" placeholder="663401993" class="form-control">
+        <input type="password" name="password" id="txtPass" placeholder="663401993" class="form-control">
         <!--
       <label for="txtPassConf">Valide contraseña</label>
       <input type="password" name="" id="txtPassConf" placeholder="663401993" class="form-control">
@@ -33,9 +35,9 @@
       </div>
       <div class="col-md-6">
         <label for="txtLatitud">Ingrese latitud</label>
-        <input type="text" name="txtLatitud" id="txtLatitud" placeholder="-33.37" class="form-control">
+        <input type="text" name="lat" id="txtLatitud" placeholder="-33.37" class="form-control">
         <label for="txtLongitud">Ingrese longitud</label>
-        <input type="text" name="txtLongitud" id="txtLongitud" placeholder="-70.56" class="form-control">
+        <input type="text" name="lng" id="txtLongitud" placeholder="-70.56" class="form-control">
       </div>
     </div>
 
@@ -53,7 +55,7 @@
   <script>
     mapboxgl.accessToken = "pk.eyJ1IjoiZnJoZ20iLCJhIjoiY2ticGJiNWVlMmF6YTJ0bno0cTUyajhvaSJ9.WunbH1t2AY7TP_0t2HmH9w";
     var jsonData = $.ajax({
-      url: 'conexion.php',
+      url: 'mostrar.php',
       //data: {'periodo':periodo,'action':'ajax'},
       dataType: 'json',
       async: false
@@ -87,6 +89,13 @@
         )
         .addTo(map);
     });
+
+    map.addControl(
+      new MapboxGeocoder({
+        accessToken: mapboxgl.accessToken,
+        mapboxgl: mapboxgl
+      })
+    );
   </script>
 </body>
 
