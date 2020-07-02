@@ -19,7 +19,7 @@
 <body>
   <form action="insertar.php" method="post">
     <div class="row">
-      <div class="col-md-6">
+      <div class="col-md-6 justify-content-center">
         <label for="txtNombre">Ingrese nombre</label>
         <input type="text" name="name" id="txtNombre" placeholder="Juan Pablo" class="form-control">
 
