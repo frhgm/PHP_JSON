@@ -1,2 +1,1 @@
-Falta eliminar las comillas de las variables del archivo json a la izquierda.
-Asignar el archivo JSON a una variable 'geoJson'
+Shows points in Mapbox map set by manual coordinates on a form
